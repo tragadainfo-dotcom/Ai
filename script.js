@@ -64,6 +64,19 @@ function renderSafe(){
   $("#safe").innerHTML=h;
 }
 
+/* ---------- ChatGPT ---------- */
+function renderGpt(){
+  const g=GPT;
+  let h=`<p class="sub">${g.lead}</p><div class="stack">`;
+  g.blocks.forEach(b=>{
+    h+=`<details class="glass level"><summary><span class="ttl"><b>${b[0]}</b></span></summary><div class="body">${b[1]}`;
+    if(b[2]) h+=`<a class="srclink" href="${b[2][1]}" target="_blank" rel="noopener noreferrer">${b[2][0]} ↗</a>`;
+    h+=`</div></details>`;
+  });
+  h+=`</div><p class="note glass">${g.note}</p>`;
+  $("#gpt").innerHTML=h;
+}
+
 /* ---------- копирование ---------- */
 document.addEventListener("click",async e=>{
   const b=e.target.closest(".copy"); if(!b) return;
@@ -75,7 +88,7 @@ document.addEventListener("click",async e=>{
 /* ---------- маршруты: #/ , #/claude , #/claude/safe|audit|map ---------- */
 function route(){
   const [,page="",sub="map"]=location.hash.replace(/^#/,"").split("/");
-  const p=page==="claude"?"claude":"home";
+  const p=["claude","chatgpt"].includes(page)?page:"home";
   $$("[data-page]").forEach(s=>s.hidden=s.dataset.page!==p);
   $$("[data-route]").forEach(a=>a.classList.toggle("on",a.dataset.route===p));
   const sb=["map","audit","safe"].includes(sub)?sub:"map";
@@ -86,4 +99,4 @@ function route(){
 $$(".seg button").forEach(b=>b.onclick=()=>{location.hash="#/claude/"+b.dataset.sub});
 addEventListener("hashchange",route);
 
-renderMap(); renderAudit(); renderSafe(); progress(); route();
+renderMap(); renderAudit(); renderSafe(); renderGpt(); progress(); route();

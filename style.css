@@ -121,3 +121,10 @@ details.level[open] summary::after{content:"–"}
 .code-h{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--peach);color:var(--ink);font-weight:700;font-size:.8rem}
 .code .copy{padding:4px 12px;font-size:.78rem;background:#fff}
 .code pre{white-space:pre-wrap;word-break:break-word;font:.82rem/1.55 ui-monospace,Menlo,monospace;padding:14px;margin:0}
+
+.hero-img{position:relative;max-width:1100px;margin:30px auto 20px;padding:0 14px}
+.hero-img img{width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center;display:block;border-radius:28px;box-shadow:var(--shadow)}
+.hero-img .hero-card{position:absolute;left:44px;bottom:30px;max-width:420px;text-align:left;padding:28px 30px}
+.hero-img .hero-card h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0}
+.hero-img .lead{margin-bottom:18px;font-size:.95rem}
+@media(max-width:700px){.hero-img .hero-card{position:static;max-width:none;margin-top:-50px;margin-inline:10px;position:relative}}
