@@ -1,3 +1,3 @@
-# Остров Claude
+# Остров Ai
 
-Статический сайт для изучения работы с ИИ (Claude). Открой `index.html` или включи GitHub Pages.
+Статический сайт: курс по Claude и гид «Claude без блокировок». Откройте `index.html` или включите GitHub Pages.
