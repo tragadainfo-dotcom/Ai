@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Остров Claude — учимся работать с ИИ</title>
+<meta name="description" content="Пошаговый путь от нуля до продвинутого уровня работы с Claude: промпты, артефакты, проекты, skills, коннекторы и Claude Code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+  <span class="shard s1"></span><span class="shard s2"></span><span class="shard s3"></span>
+</div>
+
+<header class="nav glass">
+  <a class="brand" href="#top">Остров Claude</a>
+  <nav>
+    <a href="#path">Путь</a>
+    <a href="#prompt">Промпты</a>
+    <a href="#tools">Инструменты</a>
+    <a href="#tips">Советы</a>
+  </nav>
+  <span class="pill" id="navProgress">0 из 10</span>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="glass hero-card">
+      <p class="eyebrow">Учебная программа · 10 этапов</p>
+      <h1>Остров Claude</h1>
+      <p class="lead">Единый путь от нуля до продвинутого уровня. Короткие уроки, понятные формулы и практика — спокойно и без воды.</p>
+      <a class="cta" href="#path">Начать путь</a>
+      <div class="bar" role="progressbar" aria-label="Прогресс обучения"><i id="heroBar"></i></div>
+    </div>
+    <div class="shard-card c1"></div><div class="shard-card c2"></div><div class="shard-card c3"></div>
+  </section>
+
+  <section id="path" class="section">
+    <h2>Карта обучения</h2>
+    <p class="sub">Отмечайте пройденное — прогресс сохраняется в вашем браузере.</p>
+    <div class="grid" id="levels"></div>
+  </section>
+
+  <section id="prompt" class="section">
+    <h2>Формула промпта</h2>
+    <div class="glass formula">
+      <ul>
+        <li><b>Роль</b><span>кем должен быть Claude</span></li>
+        <li><b>Контекст</b><span>ситуация и аудитория</span></li>
+        <li><b>Задача</b><span>чего ты хочешь</span></li>
+        <li><b>Ограничения</b><span>правила, тон, объём</span></li>
+        <li><b>Формат</b><span>как представить результат</span></li>
+      </ul>
+      <blockquote>
+        Действуй как SEO-специалист. Напиши пост для блога о «Советах по ИИ» для новичков. Правила: доступный тон, меньше 300 слов. Результат в markdown.
+        <button class="copy" data-copy="Действуй как SEO-специалист. Напиши пост для блога о «Советах по ИИ» для новичков. Правила: доступный тон, меньше 300 слов. Результат в markdown.">Копировать</button>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="tools" class="section">
+    <h2>Что можно создавать и подключать</h2>
+    <div class="cols">
+      <div class="glass box"><h3>Типы артефактов</h3>
+        <div class="chips"><span>Документ</span><span>Презентация</span><span>Таблица</span><span>Панель данных</span><span>Сайт или страница</span><span>Калькулятор</span><span>Диаграмма</span></div></div>
+      <div class="glass box"><h3>Анатомия Skill</h3>
+        <div class="chips"><span>Роль</span><span>Правила</span><span>Процесс</span><span>Примеры</span><span>Формат</span></div></div>
+      <div class="glass box"><h3>Коннекторы</h3>
+        <div class="chips"><span>Google Drive</span><span>Gmail</span><span>Notion</span><span>GitHub</span></div></div>
+      <div class="glass box"><h3>Роли для Claude</h3>
+        <div class="chips"><span>Стратег</span><span>Рецензент</span><span>Исследователь</span><span>Редактор</span><span>Преподаватель</span><span>Планировщик</span><span>Адвокат дьявола</span></div></div>
+    </div>
+  </section>
+
+  <section id="tips" class="section">
+    <h2>Быстрые советы</h2>
+    <div class="cols three">
+      <div class="glass box"><h3>Делай</h3><ul class="list">
+        <li>Будь конкретным</li><li>Сначала дай контекст</li><li>Используй примеры</li><li>Разбивай большие задачи</li><li>Улучшай ответ итерациями</li><li>Проси нужный формат</li></ul></div>
+      <div class="glass box"><h3>Фразы-ускорители</h3><ul class="list">
+        <li>Действуй как [специалист]</li><li>Моя цель — [цель]</li><li>Моя аудитория — [аудитория]</li><li>Прежде чем отвечать, задай вопросы</li><li>Укажи недостатки того, что я написал</li></ul></div>
+      <div class="glass box"><h3>Ошибки новичка</h3><ul class="list bad">
+        <li>Слишком расплывчатый промпт</li><li>Нет контекста</li><li>Всё сразу</li><li>Не улучшать ответ</li><li>Игнорировать формат</li><li>Доверять без проверки</li></ul></div>
+    </div>
+  </section>
+</main>
+
+<footer><span>Остров Claude</span> · учебный проект по работе с ИИ</footer>
+<script src="script.js"></script>
+</body>
+</html>
