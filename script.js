@@ -30,6 +30,7 @@ function renderMap(){
         <p>${l.intro}</p>
         ${l.items.map(itemHtml).join("")}
         <details class="removed"><summary>Убрано из карты (${l.removed.length})</summary><ul class="list bad">${l.removed.map(r=>`<li><b>${r[0]}</b> — ${r[1]}</li>`).join("")}</ul></details>
+        ${l.src?`<p class="src">Источники: ${l.src.map(x=>`<a href="${x[1]}" target="_blank" rel="noopener noreferrer">${x[0]} ↗</a>`).join(" · ")}</p>`:""}
         <div class="task">${l.task}</div>
         <button type="button" class="toggle">${done.includes(i)?"Пройдено ✓ (снять отметку)":"Отметить пройденным"}</button>
       </div>`;
@@ -45,11 +46,18 @@ function renderMap(){
 
 /* ---------- аудит ---------- */
 function renderAudit(){
-  const a=AUDIT;
+  const a=AUDIT, ul=(x,c="")=>`<ul class="list ${c}">${x.map(i=>`<li>${i}</li>`).join("")}</ul>`;
   $("#audit").innerHTML=`<p class="sub">${a.intro}</p>
+   <div class="cols three">
+    <div class="glass box"><h3>Сверено с документацией</h3>${ul(a.verified)}</div>
+    <div class="glass box"><h3>Исправлено после сверки</h3>${ul(a.corrected)}</div>
+    <div class="glass box"><h3>Остаётся на вашей проверке</h3>${ul(a.open,"bad")}</div>
+   </div>
+   <p class="note glass">${a.note}</p>
+   <h3 class="sect">Что убрано из карты</h3>
    <div class="glass box"><table class="tbl"><thead><tr><th>Раздел</th><th>Оставлено</th><th>Убрано или слито</th></tr></thead><tbody>
    ${LEVELS.map((l,i)=>`<tr><td>${i+1}. ${l.t}</td><td>${l.items.length}</td><td>${l.removed.map(r=>r[0]).join("; ")}</td></tr>`).join("")}
-   </tbody></table></div><p class="note glass">${a.note}</p>`;
+   </tbody></table></div>`;
 }
 
 /* ---------- без блокировок ---------- */

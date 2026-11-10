@@ -140,3 +140,7 @@ details.removed ul{margin-top:10px}
 .tbl th,.tbl td{text-align:left;padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(0,0,0,.08)}
 .tbl th{color:var(--muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .tbl td:first-child{font-weight:700}
+
+.sect{margin:26px 0 12px}
+.body .src{font-size:.85rem}
+.body .src a{color:var(--gold);font-weight:700}
