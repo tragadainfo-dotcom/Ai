@@ -14,16 +14,22 @@ function codeBlock(title,text){
 }
 
 /* ---------- карта ---------- */
+function itemHtml(it){
+  return `<article class="item"><h4>${it.t}</h4>
+    <ol class="steps">${it.steps.map(x=>`<li><span>${x}</span></li>`).join("")}</ol>
+    ${it.ex?codeBlock(it.ex.title,it.ex.text):""}
+    ${it.tip?`<div class="hint"><b>Подсказка</b>${it.tip}</div>`:""}</article>`;
+}
 function renderMap(){
   const root=$("#levels"); root.innerHTML="";
   LEVELS.forEach((l,i)=>{
     const d=document.createElement("details");
     d.className="glass level"+(done.includes(i)?" done":"");
-    d.innerHTML=`<summary><span class="num">${i+1}</span><span class="ttl"><b>${l.t}</b><small>Цель: ${l.goal}</small></span><span class="mark">${done.includes(i)?"✓":""}</span></summary>
+    d.innerHTML=`<summary><span class="num">${i+1}</span><span class="ttl"><b>${l.t}</b><small>Цель: ${l.goal} · ${l.items.length} инструкций</small></span><span class="mark">${done.includes(i)?"✓":""}</span></summary>
       <div class="body">
         <p>${l.intro}</p>
-        <ol class="steps">${l.steps.map(s=>`<li><b>${s[0]}</b><span>${s[1]}</span></li>`).join("")}</ol>
-        <div class="hint"><b>Подсказка</b>${l.tip.replace(/^(Подсказка|Шаблон):\s*/,"")}</div>
+        ${l.items.map(itemHtml).join("")}
+        <details class="removed"><summary>Убрано из карты (${l.removed.length})</summary><ul class="list bad">${l.removed.map(r=>`<li><b>${r[0]}</b> — ${r[1]}</li>`).join("")}</ul></details>
         <div class="task">${l.task}</div>
         <button type="button" class="toggle">${done.includes(i)?"Пройдено ✓ (снять отметку)":"Отметить пройденным"}</button>
       </div>`;
@@ -31,7 +37,7 @@ function renderMap(){
       done=done.includes(i)?done.filter(n=>n!==i):[...done,i];
       try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}
       renderMap(); progress();
-      $$("#levels details")[i].open=true;
+      $$("#levels > details")[i].open=true;
     };
     root.appendChild(d);
   });
@@ -39,13 +45,11 @@ function renderMap(){
 
 /* ---------- аудит ---------- */
 function renderAudit(){
-  const a=AUDIT, ul=x=>`<ul class="list">${x.map(i=>`<li>${i}</li>`).join("")}</ul>`;
+  const a=AUDIT;
   $("#audit").innerHTML=`<p class="sub">${a.intro}</p>
-   <div class="cols three">
-    <div class="glass box"><h3>Оставил</h3>${ul(a.kept)}</div>
-    <div class="glass box"><h3>Убрал или переписал</h3>${ul(a.removed)}</div>
-    <div class="glass box"><h3>Проверяйте сами</h3>${ul(a.check)}</div>
-   </div><p class="note glass">${a.note}</p>`;
+   <div class="glass box"><table class="tbl"><thead><tr><th>Раздел</th><th>Оставлено</th><th>Убрано или слито</th></tr></thead><tbody>
+   ${LEVELS.map((l,i)=>`<tr><td>${i+1}. ${l.t}</td><td>${l.items.length}</td><td>${l.removed.map(r=>r[0]).join("; ")}</td></tr>`).join("")}
+   </tbody></table></div><p class="note glass">${a.note}</p>`;
 }
 
 /* ---------- без блокировок ---------- */

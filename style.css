@@ -128,3 +128,15 @@ details.level[open] summary::after{content:"–"}
 .hero-img .hero-card h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0}
 .hero-img .lead{margin-bottom:18px;font-size:.95rem}
 @media(max-width:700px){.hero-img .hero-card{position:static;max-width:none;margin-top:-50px;margin-inline:10px;position:relative}}
+
+.item{display:grid;gap:10px;padding:16px;border-radius:16px;background:rgba(255,255,255,.5)}
+.item h4{font-size:1.02rem}
+.item .steps li{padding:8px 12px 8px 42px;background:rgba(255,255,255,.65)}
+.item .steps li::before{top:8px}
+details.removed{border-radius:14px;background:rgba(255,255,255,.4);padding:10px 14px}
+details.removed summary{cursor:pointer;font-weight:700;color:var(--muted)}
+details.removed ul{margin-top:10px}
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;vertical-align:top;border-bottom:1px solid rgba(0,0,0,.08)}
+.tbl th{color:var(--muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.tbl td:first-child{font-weight:700}
