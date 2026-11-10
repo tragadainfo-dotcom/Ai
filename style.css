@@ -144,3 +144,18 @@ details.removed ul{margin-top:10px}
 .sect{margin:26px 0 12px}
 .body .src{font-size:.85rem}
 .body .src a{color:var(--gold);font-weight:700}
+
+/* ===== v3: полноширинная главная, мобильное меню ===== */
+.hero{position:relative;max-width:none;width:100%;margin:-76px 0 40px;padding:0 20px 36px;min-height:min(86vh,680px);
+  display:flex;align-items:flex-end;justify-content:flex-start;
+  background:linear-gradient(to bottom,rgba(239,233,225,0) 55%,rgba(239,233,225,.55) 100%),url("assets/island.jpg") center 30%/cover no-repeat}
+.hero .hero-card{max-width:440px;text-align:left;padding:28px 30px;margin-left:max(0px,calc((100% - 1100px)/2))}
+.hero .hero-card h1{font-size:clamp(2.2rem,6vw,3.2rem);margin:8px 0}
+.hero .lead{margin:0;font-size:1rem}
+@media(max-width:800px){
+  .nav{flex-wrap:wrap;gap:6px 12px;padding:12px 16px}
+  .nav nav{display:flex;order:3;width:100%;margin:0;justify-content:space-between;gap:8px}
+  .nav nav a{font-size:.88rem;padding:4px 0}
+  .hero{margin-top:-120px;min-height:560px;padding:0 14px 24px;justify-content:center}
+  .hero .hero-card{max-width:none;width:100%;margin-left:0;padding:22px}
+}

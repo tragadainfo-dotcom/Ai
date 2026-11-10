@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Остров Ai — учимся работать с ИИ</title>
 <meta property="og:image" content="assets/island.jpg">
-<meta name="description" content="Остров Ai: курс по Claude от нуля до продвинутого уровня и гид «Claude без блокировок».">
+<meta name="description" content="Остров Ai: курсы по Claude и ChatGPT и гид «Без блокировок».">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,70 +14,72 @@
 <body>
 <div class="bg" aria-hidden="true">
   <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
-  <span class="shard s1"></span><span class="shard s2"></span><span class="shard s3"></span>
 </div>
 
 <header class="nav glass">
   <a class="brand" href="#/">Остров Ai</a>
   <nav>
-    <a href="#/" data-route="home">Главная</a>
     <a href="#/claude" data-route="claude">Claude</a>
     <a href="#/chatgpt" data-route="chatgpt">ChatGPT</a>
+    <a href="#/safe" data-route="safe">Без блокировок</a>
   </nav>
-  <span class="pill" id="navProgress">0 из 10</span>
 </header>
 
 <main>
   <!-- ГЛАВНАЯ -->
   <section data-page="home">
-    <div class="hero-img">
-      <img src="assets/island.jpg" alt="Стеклянные пластины с нейросетью и логотипом AI на светлом острове" width="1182" height="912">
+    <div class="hero">
       <div class="glass hero-card">
         <p class="eyebrow">Учебная программа по ИИ</p>
         <h1>Остров Ai</h1>
-        <p class="lead">Спокойное место, где можно разобраться в нейросетях по шагам: Claude и ChatGPT.</p>
-        <a class="cta" href="#/claude">Открыть Claude</a>
-        <div class="bar" role="progressbar" aria-label="Прогресс"><i id="heroBar"></i></div>
+        <p class="lead">Спокойное место, где можно разобраться в нейросетях по шагам.</p>
       </div>
     </div>
-    <div class="cols three wrap">
-      <a class="glass box linkbox" href="#/claude"><h3>Карта обучения</h3><p>10 этапов с подробными инструкциями и подсказками.</p></a>
-      <a class="glass box linkbox" href="#/claude/safe"><h3>Без блокировок</h3><p>Верификация, апелляция, резервные копии, правила аккаунта.</p></a>
-      <a class="glass box linkbox" href="#/chatgpt"><h3>ChatGPT</h3><p>Проверки, приватность, правила аккаунта и выбор между Claude и ChatGPT.</p></a>
+    <div class="wrap">
+      <div class="cols three">
+        <a class="glass box linkbox" href="#/claude"><h3>Claude</h3><p>Курс: промпты, проекты, skills, коннекторы, Claude Code.</p></a>
+        <a class="glass box linkbox" href="#/chatgpt"><h3>ChatGPT</h3><p>Курс: персонализация, проекты, файлы, исследования, Codex.</p></a>
+        <a class="glass box linkbox" href="#/safe"><h3>Без блокировок</h3><p>Правила аккаунта, проверки, апелляция и резервные копии.</p></a>
+      </div>
     </div>
   </section>
 
   <!-- CLAUDE -->
   <section data-page="claude" hidden>
     <div class="wrap">
-      <h2>Claude</h2>
-      <div class="seg glass" role="tablist">
-        <button data-sub="map" class="on">Карта обучения</button>
-        <button data-sub="audit">Что я проверил на карте</button>
-        <button data-sub="safe">Без блокировок</button>
-      </div>
-
-      <div data-sub-page="map">
-        <p class="sub">Открывайте этап, читайте инструкции по пунктам, делайте практическое задание и отмечайте пройденное. Прогресс хранится в вашем браузере.</p>
-        <div id="levels" class="stack"></div>
-      </div>
-
-      <div data-sub-page="audit" hidden id="audit"></div>
-      <div data-sub-page="safe" hidden id="safe"></div>
+      <h2>Курс по Claude</h2>
+      <p class="sub">Открывайте этап и читайте инструкции по пунктам. Убранные из исходной карты пункты видны внутри каждого этапа с причиной.</p>
+      <div id="levels" class="stack"></div>
+      <details class="glass level" id="auditBox"><summary><span class="ttl"><b>Как проверен этот курс</b></span></summary><div class="body" id="audit"></div></details>
     </div>
   </section>
 
   <!-- CHATGPT -->
   <section data-page="chatgpt" hidden>
     <div class="wrap">
-      <h2>ChatGPT</h2>
-      <div id="gpt"></div>
+      <h2>Курс по ChatGPT</h2>
+      <p class="sub">Тот же формат: этапы, пошаговые инструкции, шаблоны и убранные пункты с причинами. Прямой доступ к help.openai.com из моей среды был закрыт, поэтому факты взяты из выдержек официальных страниц OpenAI, найденных поиском. Меню и лимиты сверяйте в приложении.</p>
+      <div id="levelsGpt" class="stack"></div>
+    </div>
+  </section>
+
+  <!-- БЕЗ БЛОКИРОВОК -->
+  <section data-page="safe" hidden>
+    <div class="wrap">
+      <h2>Без блокировок</h2>
+      <div class="seg glass" role="tablist">
+        <button data-sub="claude" class="on">Claude</button>
+        <button data-sub="chatgpt">ChatGPT</button>
+      </div>
+      <div data-sub-page="claude" id="safe"></div>
+      <div data-sub-page="chatgpt" id="gptsafe" hidden></div>
     </div>
   </section>
 </main>
 
-<footer><span>Остров Ai</span> · учебный проект · сверяйтесь с официальной справкой support.claude.com</footer>
+<footer><span>Остров Ai</span> · учебный проект · сверяйтесь с официальной справкой</footer>
 <script src="levels.js"></script>
+<script src="gpt.js"></script>
 <script src="content.js"></script>
 <script src="script.js"></script>
 </body>
